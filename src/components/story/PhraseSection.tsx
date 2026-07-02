@@ -10,7 +10,7 @@ export function PhraseSection({ phrase, index }: Props) {
   const bg = index % 2 === 0 ? 'bg-warm-100' : 'bg-cream'
 
   return (
-    <section className={`${bg} px-8 py-20 flex items-center justify-center`}>
+    <section className={`${bg} min-h-svh px-8 py-20 flex items-center justify-center [scroll-snap-align:start]`}>
       <blockquote
         ref={reveal.ref}
         className={`${reveal.className} max-w-sm text-center`}

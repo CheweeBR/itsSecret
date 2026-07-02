@@ -1,3 +1,4 @@
+import { Camera } from 'lucide-react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import type { Moment } from '../../data/story'
 
@@ -12,11 +13,12 @@ export function MomentCard({ moment, index }: Props) {
   const reveal = useScrollReveal({ direction, threshold: 0.15, delay: 50 })
 
   return (
-    <div
-      ref={reveal.ref}
-      className={`${reveal.className} flex flex-col items-center px-6 py-10`}
-      style={reveal.style}
-    >
+    <div className="overflow-x-hidden min-h-svh flex items-start justify-center pt-10 [scroll-snap-align:start]">
+      <div
+        ref={reveal.ref}
+        className={`${reveal.className} flex flex-col items-center px-6 py-10 w-full`}
+        style={reveal.style}
+      >
       <div className={`polaroid w-full max-w-xs ${rotation}`}>
         <img
           src={moment.photo}
@@ -30,28 +32,28 @@ export function MomentCard({ moment, index }: Props) {
             if (placeholder) placeholder.style.display = 'flex'
           }}
         />
-        {/* Placeholder quando a foto não existe ainda */}
         <div
-          className="hidden h-60 w-full items-center justify-center bg-warm-100 text-4xl"
+          className="hidden h-60 w-full items-center justify-center bg-warm-100"
           aria-hidden="true"
         >
-          📸
+          <Camera size={44} strokeWidth={1} className="text-warm-300" />
         </div>
         <div className="pt-3">
           <p
-            className="text-xs uppercase tracking-wider text-terracota"
+            className="text-xl uppercase tracking-wider text-terracota"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             {moment.date}
           </p>
           <p
-            className="mt-1 text-sm leading-snug text-brown"
+            className="mt-1 text-2xl leading-snug text-brown"
             style={{ fontFamily: 'var(--font-body)' }}
           >
             {moment.caption}
           </p>
         </div>
       </div>
+    </div>
     </div>
   )
 }
