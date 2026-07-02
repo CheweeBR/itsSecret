@@ -107,7 +107,7 @@ function toPhotos(folder: string, captions: Record<string, string> = {}): DatePh
 // ── Story ─────────────────────────────────────────────────────
 export const story = {
   girlfriend: 'Tata',
-  startDate: new Date('2025-07-02T22:00:00'),
+  startDate: new Date('2025-07-02T20:30:00'),
   startDateLabel: '02 de julho de 2025',
 
   // ── Config ───────────────────────────────────────────────────
